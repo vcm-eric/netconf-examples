@@ -1,0 +1,19 @@
+<rpc message-id="get-olt-uplink1-state" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+      <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:operational</datastore>
+      <subtree-filter>
+        <interfaces-state xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+          <interface>
+              <name>uplink-1</name>
+              <admin-status/>
+              <oper-status/>
+          </interface>
+          <interface>
+              <name>lag-1</name>
+              <admin-status/>
+              <oper-status/>
+          </interface>
+        </interfaces-state>
+      </subtree-filter>
+    </get-data>
+  </rpc>

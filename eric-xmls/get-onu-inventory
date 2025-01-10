@@ -1,0 +1,14 @@
+<rpc message-id="get-onu-inventory" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:operational</datastore>
+    <subtree-filter>
+      <hardware xmlns="urn:ietf:params:xml:ns:yang:ietf-hardware">
+        <component>
+          <name>onu-1/2/1/1/1</name>
+          <serial-num/>
+          <capability xmlns="urn:vecima:yang:vecima-hardware"/>
+        </component>
+      </hardware>
+    </subtree-filter>
+  </get-data>
+</rpc>

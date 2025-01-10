@@ -1,0 +1,49 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="5">
+<edit-config>
+    <target>
+        <running/>
+    </target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+        <subsys xmlns="urn:vecima:yang:vecima-olt-subsys">
+            <polt>
+                <logging>
+                    <source>
+                        <name>sysrepo</name>
+                        <severity>debug3</severity>
+                    </source>
+                    <source>
+                        <name>netconf</name>
+                        <severity>debug3</severity>
+                    </source>
+                    <source>
+                        <name>omci-svc</name>
+                        <severity>info</severity>
+                    </source>
+                    <source>
+                        <name>onu-mgmt</name>
+                        <severity>info</severity>
+                    </source>
+                    <source>
+                        <name>bal-api</name>
+                        <severity>info</severity>
+                    </source>
+                </logging>
+            </polt>
+            <ph>
+                <logging>
+                    <source>
+                        <name>app</name>
+                        <severity>info</severity>
+                    </source>
+                    <source>
+                        <name>dhcpr</name>
+                        <severity>info</severity>
+                    </source>
+                </logging>
+            </ph>
+        </subsys>
+    </config>
+</edit-config>
+</rpc>

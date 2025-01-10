@@ -1,0 +1,10 @@
+<rpc message-id="get-olt-ncs" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:running</datastore>
+    <subtree-filter>
+      <netconf-server xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-server">
+        <call-home/>
+      </netconf-server>
+    </subtree-filter>
+  </get-data>
+</rpc>

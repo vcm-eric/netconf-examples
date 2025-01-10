@@ -1,0 +1,19 @@
+<rpc message-id="get-inventory" 
+     xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"
+     xmlns:hw="urn:ietf:params:xml:ns:yang:ietf-hardware"
+     xmlns:yang="urn:ietf:params:xml:ns:yang:ietf-yang-types"
+     xmlns:inet="urn:ietf:params:xml:ns:yang:ietf-inet-types"
+     xmlns:bbf-hw-xcvr="urn:bbf:yang:bbf-hardware-transceivers"
+     xmlns:ianahw="urn:ietf:params:xml:ns:yang:iana-hardware"
+     xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:operational</datastore>
+    <subtree-filter>
+      <hw:hardware>
+        <hw:component>
+          <hw:name>onu-1/2/1/1/1</hw:name>
+        </hw:component>
+      </hw:hardware>
+    </subtree-filter>
+  </get-data>
+</rpc>
