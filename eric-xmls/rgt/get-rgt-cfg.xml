@@ -1,0 +1,16 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="get-rot-cfg">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:running</datastore>
+    <subtree-filter>
+      <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+        <interface>
+            <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+              <rogue-onu-test-scheds xmlns="urn:vecima:yang:vecima-xpon">
+                  <rogue-onu-test-sched xmlns="urn:vecima:yang:vecima-xpon"/>
+              </rogue-onu-test-scheds>
+            </channel-termination>
+        </interface>
+      </interfaces>              
+    </subtree-filter>
+  </get-data>
+</rpc>

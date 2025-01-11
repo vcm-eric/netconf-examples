@@ -1,0 +1,37 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="3225">
+<edit-config>
+    <target>
+        <running/>
+    </target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+    
+      <hardware xmlns="urn:ietf:params:xml:ns:yang:ietf-hardware">
+        <component>
+          <name>eth-1/1/1/4</name>
+          <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver-link</class>
+          <parent-rel-pos>4</parent-rel-pos>
+          <parent>sfp-1/1/1</parent>
+        </component>
+      </hardware>
+
+      <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+       <interface>
+        <name>uplink-1</name>
+        <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+        <enabled>true</enabled>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+        <port-layer-if>eth-1/1/1/1</port-layer-if>
+        <port-layer-if>eth-1/1/1/2</port-layer-if>
+        <port-layer-if>eth-1/1/1/3</port-layer-if>
+        <port-layer-if>eth-1/1/1/4</port-layer-if>
+        </hardware-component>
+        <interface-usage xmlns="urn:bbf:yang:bbf-interface-usage">
+        <interface-usage>network-port</interface-usage>
+        </interface-usage>
+       </interface>
+      </interfaces>
+    </config>
+</edit-config>
+</rpc>

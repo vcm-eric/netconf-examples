@@ -1,0 +1,15 @@
+<rpc message-id="test-b" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <action xmlns="urn:ietf:params:xml:ns:yang:1">
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+        <interface>
+            <name>ct.1</name>
+            <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+              <test-b xmlns="urn:lref:yang:lref-1">
+                <name>test-2</name>
+                <profile>p-1</profile>
+              </test-b>
+            </channel-termination>
+        </interface>
+      </interfaces>     
+  </action>
+</rpc>

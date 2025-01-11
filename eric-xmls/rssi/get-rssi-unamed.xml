@@ -1,0 +1,15 @@
+<rpc message-id="get-olt-op111" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:operational</datastore>
+    <subtree-filter>
+      <hardware xmlns="urn:bbf:yang:bbf-hardware">
+         <component>
+           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver</class>
+         </component>
+         <component>
+           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver-link</class>
+         </component>
+      </hardware>
+    </subtree-filter>
+  </get-data>
+</rpc>

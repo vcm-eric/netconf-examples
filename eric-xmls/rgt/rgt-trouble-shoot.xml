@@ -1,0 +1,16 @@
+
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="troubleshoot-onu">
+  <action xmlns="urn:ietf:params:xml:ns:yang:1">
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+        <interface>
+            <name>ct.1</name>
+            <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+              <troubleshoot-onu xmlns="urn:vecima:yang:vecima-xpon">
+                <onu-serial-number>HTSZ260D7413</onu-serial-number>
+                <action>disable</action>
+              </troubleshoot-onu>
+            </channel-termination>
+        </interface>
+      </interfaces>     
+  </action>
+</rpc>

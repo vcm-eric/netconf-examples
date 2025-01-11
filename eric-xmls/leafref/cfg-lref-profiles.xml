@@ -1,0 +1,17 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="cfg-test-profiles">
+<edit-config>
+    <target><running/></target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <xpon xmlns="urn:bbf:yang:bbf-xpon">
+        <test-profiles xmlns="urn:lref:yang:lref-1">
+          <test-profile>
+            <name>p-1</name>
+            <type>r-c</type>
+          </test-profile>
+        </test-profiles>
+      </xpon>
+    </config>
+</edit-config>
+</rpc>

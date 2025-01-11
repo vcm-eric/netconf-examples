@@ -1,0 +1,71 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="5">
+<edit-config>
+    <target>
+        <running/>
+    </target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+        <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+            <interface>
+                <name>cg.1</name>
+                <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-group</type>
+                <enabled>true</enabled>
+                <channel-group xmlns="urn:bbf:yang:bbf-xpon">
+                    <polling-period>20</polling-period>
+                    <raman-mitigation>raman-none</raman-mitigation>
+                    <system-id>00000</system-id>
+                    <pon-pools>
+                        <pon-pool>
+                            <name>pool1</name>
+                                    <alloc-id-values>1024-1080</alloc-id-values>
+                                    <gemport-values>1024-1080</gemport-values>
+                                    <onu-id-values>55-100</onu-id-values>
+                            <channel-termination-ref>ct.1</channel-termination-ref>
+                        </pon-pool>
+                    </pon-pools>
+                </channel-group>
+            </interface>
+            <interface>
+                <name>cp.1</name>
+                <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-partition</type>
+                <enabled>true</enabled>
+                <channel-partition xmlns="urn:bbf:yang:bbf-xpon">
+                    <channel-group-ref>cg.1</channel-group-ref>
+                    <channel-partition-index>0</channel-partition-index>
+                    <closest-onu-distance>0</closest-onu-distance>
+                    <maximum-differential-xpon-distance>20</maximum-differential-xpon-distance>
+                    <authentication-method>serial-number</authentication-method>
+                </channel-partition>
+            </interface>
+            <interface>
+                <name>cpr.1</name>
+                <enabled>true</enabled>
+                <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-pair</type>
+                <channel-pair xmlns="urn:bbf:yang:bbf-xpon">
+                    <channel-pair-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-pair-type>
+                    <wavelength-prof-ref>wlp.A</wavelength-prof-ref>
+                    <channel-group-ref>cg.1</channel-group-ref>
+                    <channel-partition-ref>cp.1</channel-partition-ref>
+                </channel-pair>
+            </interface>
+            <interface>
+                <name>ct.1</name>
+                <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-termination</type>
+                <enabled>true</enabled>
+                <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+                    <port-layer-if nc:operation="replace">pon-1/2/1/1</port-layer-if>
+                </hardware-component>
+                <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+                    <channel-pair-ref>cpr.1</channel-pair-ref>
+                        <channel-termination-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-termination-type>
+                        <xgs-pon-id>0</xgs-pon-id>
+                    <location xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:inside-olt</location>
+                    <notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present</notifiable-onu-presence-states>
+                    <notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-not-present</notifiable-onu-presence-states>
+                </channel-termination>
+            </interface>
+        </interfaces>
+    </config>
+</edit-config>
+</rpc>

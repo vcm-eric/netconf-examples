@@ -1,0 +1,14 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="stop-rot">
+  <action xmlns="urn:ietf:params:xml:ns:yang:1">
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+        <interface>
+            <name>ct.1</name>
+            <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+              <stop-rogue-onu-test xmlns="urn:vecima:yang:vecima-xpon">
+                <name>on-dmd-1</name>
+              </stop-rogue-onu-test>
+            </channel-termination>
+        </interface>
+      </interfaces>    
+  </action>
+</rpc>

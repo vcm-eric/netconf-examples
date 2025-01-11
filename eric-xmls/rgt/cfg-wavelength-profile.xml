@@ -1,0 +1,20 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="105">
+<edit-config>
+    <target>
+        <running/>
+    </target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+        <xpon xmlns="urn:bbf:yang:bbf-xpon">
+            <wavelength-profiles>
+                <wavelength-profile>
+                    <name>wlp.A</name>
+                    <upstream-channel-id>0</upstream-channel-id>
+                    <downstream-channel-id>0</downstream-channel-id>
+                </wavelength-profile>
+            </wavelength-profiles>
+        </xpon>
+    </config>
+</edit-config>
+</rpc>

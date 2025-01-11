@@ -1,0 +1,11 @@
+<rpc message-id="get-olt-rogue-onu-test-cfg" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:running</datastore>
+    <subtree-filter>
+       <classifiers xmlns="urn:bbf:yang:bbf-qos-classifiers"/>
+       <policies xmlns="urn:bbf:yang:bbf-qos-policies"/>
+       <qos-policy-profiles xmlns="urn:bbf:yang:bbf-qos-policies"/>
+        <xpon xmlns="urn:bbf:yang:bbf-xpon"/>
+    </subtree-filter>
+  </get-data>
+</rpc>

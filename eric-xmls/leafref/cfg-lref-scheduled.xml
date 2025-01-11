@@ -1,0 +1,20 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="cfg-test-a">
+<edit-config>
+    <target><running/></target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+       <interface>
+        <name>ct.1</name>
+          <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+            <test-a xmlns="urn:lref:yang:lref-1">
+              <name>test-1</name>
+              <profile>p-1</profile>
+            </test-a>
+          </channel-termination>
+       </interface>
+      </interfaces>
+    </config>
+</edit-config>
+</rpc>
