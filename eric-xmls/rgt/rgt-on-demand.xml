@@ -5,7 +5,7 @@
             <name>ct.1</name>
             <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
               <on-demand-rogue-onu-test xmlns="urn:vecima:yang:vecima-xpon">
-                <name>on-dmd-1</name>
+                <name>on-dmd-2</name>
                 <type>permanent-laser-on</type>
                 <conduct-action>identify</conduct-action>
               </on-demand-rogue-onu-test>
