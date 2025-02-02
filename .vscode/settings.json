@@ -1,3 +1,16 @@
 {
-    "netconf.activeServer": "XGS_Atlanta"
+    "netconf.activeServer": "Seattle",
+    "netconf.serverList": [
+
+        {
+            "id": "Seattle",
+            "host": "10.254.20.136",
+            "port": 8080,
+            "username": "root",
+            "password": ""
+        }
+    ],
+    "netconf.sshDebug": false,
+    "netconf.prettify": false,
+    "netconf.keysFile": ""
 }
