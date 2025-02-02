@@ -1,0 +1,401 @@
+  <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="388">
+    <edit-config>
+      <target>
+        <running />
+      </target>
+      <test-option>test-then-set</test-option>
+      <error-option>rollback-on-error</error-option>
+      <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+        <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+          <interface>
+            <name>net_sub1</name>
+            <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
+            <interface-usage xmlns="urn:bbf:yang:bbf-interface-usage">
+              <interface-usage>network-port</interface-usage>
+            </interface-usage>
+            <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <interface>lag-2</interface>
+            </subif-lower-layer>
+            <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <ingress-rule>
+                <rule>
+                  <name>n1_c1410_c501</name>
+                  <priority>1</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <tag>
+                        <index>0</index>
+                        <dot1q-tag>
+                          <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                          <vlan-id>1410</vlan-id>
+                        </dot1q-tag>
+                      </tag>
+                      <tag>
+                        <index>1</index>
+                        <dot1q-tag>
+                          <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                          <vlan-id>501</vlan-id>
+                        </dot1q-tag>
+                      </tag>
+                    </match-criteria>
+                  </flexible-match>
+                  <ingress-rewrite>
+                    <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
+                  </ingress-rewrite>
+                </rule>
+              </ingress-rule>
+              <egress-rewrite>
+                <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                  <index>0</index>
+                  <dot1q-tag>
+                    <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                    <vlan-id>1410</vlan-id>
+                    <pbit-from-tag-index>0</pbit-from-tag-index>
+                    <write-dei-0/>
+                  </dot1q-tag>
+                </push-tag>
+              </egress-rewrite>
+            </inline-frame-processing>
+          </interface>
+          
+          <interface>
+            <name>onu-16/1_eth1_sub1_untag</name>
+            <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
+            <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">ing_qos_profile_ipoe-dscp_def-pbit0_8tc</ingress-qos-policy-profile>
+            <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <interface>onu-16/1_eth1</interface>
+            </subif-lower-layer>
+            <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <ingress-rule>
+                <rule>
+                  <name>default_untag_to_c501</name>
+                  <priority>2</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <untagged/>
+                    </match-criteria>
+                  </flexible-match>
+                  <ingress-rewrite>
+                    <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">0</pop-tags>
+                    <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <index>0</index>
+                      <dot1q-tag>
+                        <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                        <vlan-id>501</vlan-id>
+                        <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
+                        <write-dei-0/>
+                      </dot1q-tag>
+                    </push-tag>
+                  </ingress-rewrite>
+                </rule>
+                <rule>
+                  <name>ipoe_untag_to_c501</name>
+                  <priority>1</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <untagged/>
+                      <ethernet-frame-type>ip</ethernet-frame-type>
+                    </match-criteria>
+                  </flexible-match>
+                  <ingress-rewrite>
+                    <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">0</pop-tags>
+                    <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <index>0</index>
+                      <dot1q-tag>
+                        <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                        <vlan-id>501</vlan-id>
+                        <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
+                        <write-dei-0/>
+                      </dot1q-tag>
+                    </push-tag>
+                  </ingress-rewrite>
+                </rule>
+              </ingress-rule>
+              <egress-rewrite>
+                <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
+              </egress-rewrite>
+            </inline-frame-processing>
+          </interface>
+          <interface>
+            <name>onu-16/1_vnet1_acc_sub1</name>
+            <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
+            <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">ing_qos_profile_i_8pbit_to_8tc</ingress-qos-policy-profile>
+            <l2-dhcpv4-relay xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
+              <enable>true</enable>
+              <profile-ref>dhcp_replay_profile</profile-ref>
+            </l2-dhcpv4-relay>
+            <dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra">
+              <enable>true</enable>
+              <profile-ref>ldra1</profile-ref>
+              <trusted-port>false</trusted-port>
+          </dhcpv6-ldra>
+            <ipv4-anti-spoofing xmlns="urn:vecima:yang:vecima-interfaces">
+              <enable>false</enable>
+            </ipv4-anti-spoofing>
+            <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <interface>onu-16/1_vnet1</interface>
+            </subif-lower-layer>
+            <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <ingress-rule>
+                <rule>
+                  <name>cvlan501</name>
+                  <priority>1</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <tag>
+                        <index>0</index>
+                        <dot1q-tag>
+                          <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                          <vlan-id>501</vlan-id>
+                        </dot1q-tag>
+                      </tag>
+                    </match-criteria>
+                  </flexible-match>
+                </rule>
+              </ingress-rule>
+            </inline-frame-processing>
+          </interface>
+  
+          <interface>
+            <name>onu-1/1_eth1_sub1_untag</name>
+            <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
+            <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">ing_qos_profile_ipoe-dscp_def-pbit0_8tc</ingress-qos-policy-profile>
+            <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <interface>onu-1/1_eth1</interface>
+            </subif-lower-layer>
+            <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <ingress-rule>
+                 <rule>
+                  <name>default_untag_to_c501</name>
+                  <priority>2</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <untagged/>
+                    </match-criteria>
+                  </flexible-match>
+                  <ingress-rewrite>
+                    <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">0</pop-tags>
+                    <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <index>0</index>
+                      <dot1q-tag>
+                        <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                        <vlan-id>501</vlan-id>
+                        <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
+                        <write-dei-0/>
+                      </dot1q-tag>
+                    </push-tag>
+                  </ingress-rewrite>
+                </rule>
+                <rule>
+                  <name>ipoe_untag_to_c501</name>
+                  <priority>1</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <untagged/>
+                      <ethernet-frame-type>ip</ethernet-frame-type>
+                    </match-criteria>
+                  </flexible-match>
+                  <ingress-rewrite>
+                    <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">0</pop-tags>
+                    <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <index>0</index>
+                      <dot1q-tag>
+                        <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                        <vlan-id>501</vlan-id>
+                        <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
+                        <write-dei-0/>
+                      </dot1q-tag>
+                    </push-tag>
+                  </ingress-rewrite>
+                </rule>
+              </ingress-rule>
+              <egress-rewrite>
+                <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
+              </egress-rewrite>
+            </inline-frame-processing>
+          </interface>
+          <interface>
+            <name>onu-1/1_vnet1_acc_sub1</name>
+            <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
+            <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">ing_qos_profile_i_8pbit_to_8tc</ingress-qos-policy-profile>
+            <l2-dhcpv4-relay xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
+              <enable>true</enable>
+              <profile-ref>dhcp_replay_profile</profile-ref>
+            </l2-dhcpv4-relay>
+                        <dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra">
+              <enable>true</enable>
+              <profile-ref>ldra1</profile-ref>
+              <trusted-port>false</trusted-port>
+          </dhcpv6-ldra>
+            <ipv4-anti-spoofing xmlns="urn:vecima:yang:vecima-interfaces">
+              <enable>false</enable>
+            </ipv4-anti-spoofing>
+            <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <interface>onu-1/1_vnet1</interface>
+            </subif-lower-layer>
+            <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
+              <ingress-rule>
+                <rule>
+                  <name>cvlan501</name>
+                  <priority>1</priority>
+                  <flexible-match>
+                    <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                      <tag>
+                        <index>0</index>
+                        <dot1q-tag>
+                          <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                          <vlan-id>501</vlan-id>
+                        </dot1q-tag>
+                      </tag>
+                    </match-criteria>
+                  </flexible-match>
+                </rule>
+              </ingress-rule>
+            </inline-frame-processing>
+          </interface>
+        </interfaces>
+        <xpongemtcont xmlns="urn:bbf:yang:bbf-xpongemtcont">
+          <tconts>
+            <tcont>
+              <name>onu-16/1_vani-tcont0</name>
+              <interface-reference>onu-16/1_vani</interface-reference>
+              <traffic-descriptor-profile-ref>assured-10m</traffic-descriptor-profile-ref>
+            </tcont>
+            <tcont>
+              <name>onu-16/1_vani-tcont1</name>
+              <interface-reference>onu-16/1_vani</interface-reference>
+              <traffic-descriptor-profile-ref>assured-10m</traffic-descriptor-profile-ref>
+            </tcont>
+            <tcont>
+              <name>onu-1/1_vani-tcont</name>
+              <interface-reference>onu-1/1_vani</interface-reference>
+              <traffic-descriptor-profile-ref>assured-10m</traffic-descriptor-profile-ref>
+            </tcont>
+          </tconts>
+          <gemports>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc0</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>0</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc1</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>1</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc2</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>2</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc3</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>3</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc4</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>4</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc5</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>5</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc6</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>6</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-16/1_vnet1-gem-tc7</name>
+              <interface>onu-16/1_vnet1_acc_sub1</interface>
+              <traffic-class>7</traffic-class>
+              <tcont-ref>onu-16/1_vani-tcont0</tcont-ref>
+            </gemport>
+
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc0</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>0</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc1</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>1</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc2</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>2</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc3</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>3</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc4</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>4</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc5</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>5</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc6</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>6</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+            <gemport>
+              <name>onu-1/1_vnet1-gem-tc7</name>
+              <interface>onu-1/1_vnet1_acc_sub1</interface>
+              <traffic-class>7</traffic-class>
+              <tcont-ref>onu-1/1_vani-tcont</tcont-ref>
+            </gemport>
+          </gemports>
+        </xpongemtcont>
+        <forwarding xmlns="urn:bbf:yang:bbf-l2-forwarding">
+          <forwarders>
+            <forwarder>
+              <name>fwd_untag_to_cvlan_1410_501</name>
+              <ports>
+                <port>
+                  <name>net_sub1</name>
+                  <sub-interface>net_sub1</sub-interface>
+                </port>
+                <port>
+                  <name>onu-16/1_vnet1_acc_sub1</name>
+                  <sub-interface>onu-16/1_vnet1_acc_sub1</sub-interface>
+                </port>
+                <port>
+                  <name>onu-1/1_vnet1_acc_sub1</name>
+                  <sub-interface>onu-1/1_vnet1_acc_sub1</sub-interface>
+                </port>
+              </ports>
+              <mac-learning>
+                <forwarding-database>bridge-1-FWD-DATABASE</forwarding-database>
+              </mac-learning>
+            </forwarder>
+          </forwarders>
+        </forwarding>
+      </config>
+    </edit-config>
+  </rpc>

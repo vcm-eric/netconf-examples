@@ -1,16 +1,4 @@
 {
     "netconf.activeServer": "Seattle",
-    "netconf.serverList": [
-
-        {
-            "id": "Seattle",
-            "host": "10.254.20.136",
-            "port": 8080,
-            "username": "root",
-            "password": ""
-        }
-    ],
-    "netconf.sshDebug": true,
-    "netconf.prettify": true,
-    "netconf.keysFile": ""
+    "netconf.prettify": true
 }

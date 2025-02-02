@@ -1,0 +1,17 @@
+  <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <get>
+        <filter>
+            <interfaces-state xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+                <interface>
+                    <name>subif-olt-1/2/16/1/1/1/2-c301</name>
+                    <statistics>
+                      <!--dhcpv4 xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay"/-->
+                      <dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra">
+                        <!--option-18-inserted-packets-to-server/-->
+                      </dhcpv6-ldra>
+                    </statistics>
+                </interface>
+            </interfaces-state>
+        </filter>
+    </get>
+</rpc>

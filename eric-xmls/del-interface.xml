@@ -8,7 +8,7 @@
     <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
         <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
             <interface nc:operation="delete">
-              <name>lagni-us</name>
+              <name>subif-olt-1/2/1/1/1/1/2-c301</name>
             </interface>
         </interfaces>
     </config>

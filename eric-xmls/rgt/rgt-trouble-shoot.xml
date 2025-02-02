@@ -6,7 +6,7 @@
             <name>ct.1</name>
             <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
               <troubleshoot-onu xmlns="urn:vecima:yang:vecima-xpon">
-                <onu-serial-number>HTSZ260D7413</onu-serial-number>
+                <onu-serial-number>HTSZ39002549</onu-serial-number>
                 <action>disable</action>
               </troubleshoot-onu>
             </channel-termination>

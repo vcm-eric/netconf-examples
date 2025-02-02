@@ -11,11 +11,11 @@
                 <logging>
                     <source>
                         <name>sysrepo</name>
-                        <severity>debug3</severity>
+                        <severity>info</severity>
                     </source>
                     <source>
                         <name>netconf</name>
-                        <severity>debug3</severity>
+                        <severity>debug</severity>
                     </source>
                     <source>
                         <name>omci-svc</name>
@@ -39,6 +39,10 @@
                     </source>
                     <source>
                         <name>dhcpr</name>
+                        <severity>info</severity>
+                    </source>
+                    <source>
+                        <name>dhcp6r</name>
                         <severity>info</severity>
                     </source>
                 </logging>

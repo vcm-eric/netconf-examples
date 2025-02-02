@@ -1,0 +1,377 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="387">
+  <edit-config>
+    <target>
+      <running />
+    </target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <system xmlns="urn:ietf:params:xml:ns:yang:ietf-system">
+        <hostname>chicago</hostname>
+      </system>
+      <xpon xmlns="urn:bbf:yang:bbf-xpon">
+        <wavelength-profiles>
+          <wavelength-profile>
+            <name>wavelengthprofile.A</name>
+            <upstream-channel-id>0</upstream-channel-id>
+            <downstream-channel-id>0</downstream-channel-id>
+          </wavelength-profile>
+        </wavelength-profiles>
+        <multicast-gemports>
+          <multicast-gemport>
+            <name>bgem_pon16</name>
+            <gemport-id>8190</gemport-id>
+            <interface>channelpair.16</interface>
+            <traffic-class>0</traffic-class>
+            <is-broadcast>true</is-broadcast>
+          </multicast-gemport>
+          <multicast-gemport>
+            <name>bgem_pon1</name>
+            <gemport-id>8190</gemport-id>
+            <interface>channelpair.1</interface>
+            <traffic-class>0</traffic-class>
+            <is-broadcast>true</is-broadcast>
+          </multicast-gemport>
+        </multicast-gemports>
+      </xpon>
+      <xpongemtcont xmlns="urn:bbf:yang:bbf-xpongemtcont">
+        <traffic-descriptor-profiles>
+          <traffic-descriptor-profile>
+            <name>assured-10m</name>
+            <fixed-bandwidth>0</fixed-bandwidth>
+            <assured-bandwidth>10000000</assured-bandwidth>
+            <maximum-bandwidth>10000000</maximum-bandwidth>
+            <additional-bw-eligibility-indicator>none</additional-bw-eligibility-indicator>
+          </traffic-descriptor-profile>
+        </traffic-descriptor-profiles>
+      </xpongemtcont>
+      <forwarding xmlns="urn:bbf:yang:bbf-l2-forwarding">
+        <forwarding-databases>
+          <forwarding-database>
+            <name>bridge-1-FWD-DATABASE</name>
+            <max-number-mac-addresses>1024</max-number-mac-addresses>
+            <aging-timer>300</aging-timer>
+          </forwarding-database>
+          <forwarding-database>
+            <name>bridge-2-FWD-DATABASE</name>
+            <max-number-mac-addresses>1024</max-number-mac-addresses>
+            <aging-timer>300</aging-timer>
+          </forwarding-database>
+        </forwarding-databases>
+      </forwarding>
+      <l2-dhcpv4-relay-profiles xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
+        <l2-dhcpv4-relay-profile>
+          <name>dhcp_replay_profile</name>
+          <option82-format>
+            <suboptions>circuit-id</suboptions>
+            <default-circuit-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-circuit-id-syntax>
+            <start-numbering-from-zero>true</start-numbering-from-zero>
+                    <use-leading-zeroes>true</use-leading-zeroes>
+          </option82-format>
+          <option82-format>
+            <suboptions>remote-id</suboptions>
+            <default-remote-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-remote-id-syntax>
+            <start-numbering-from-zero>true</start-numbering-from-zero>
+                    <use-leading-zeroes>true</use-leading-zeroes>
+          </option82-format>
+        </l2-dhcpv4-relay-profile>
+    </l2-dhcpv4-relay-profiles>
+    <dhcpv6-ldra-profiles xmlns="urn:bbf:yang:bbf-ldra">
+          <dhcpv6-ldra-profile>
+            <name>ldra1</name>
+            <options>
+              <option>interface-id</option>
+              <option>remote-id</option>
+              <option>enterprise-number</option>
+              <default-interface-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-interface-id-syntax>
+              <default-remote-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-remote-id-syntax>
+              <enterprise-number>27427</enterprise-number>
+              <start-numbering-from-zero>true</start-numbering-from-zero>
+              <use-leading-zeroes>true</use-leading-zeroes>
+          </options>
+        </dhcpv6-ldra-profile>
+      </dhcpv6-ldra-profiles>
+    <hardware xmlns="urn:ietf:params:xml:ns:yang:ietf-hardware">
+      <component>
+        <name>onu-1/2/16/1/1</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:xpon-nt</class>
+      </component>
+      <component>
+        <name>onu-1/2/16/1/1-trs</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver</class>
+        <parent>onu-1/2/16/1/1</parent>
+        <parent-rel-pos>1</parent-rel-pos>
+      </component>
+      <component>
+        <name>onu-1/2/16/1/1-wan</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver-link</class>
+        <parent>onu-1/2/16/1/1-trs</parent>
+        <parent-rel-pos>1</parent-rel-pos>
+      </component>
+      <component>
+        <name>onu-eth-1/2/16/1/1/1</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:rj45</class>
+        <parent>onu-1/2/16/1/1</parent>
+        <parent-rel-pos>1</parent-rel-pos>
+      </component>
+      <component>
+        <name>onu-eth-1/2/16/1/1/2</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:rj45</class>
+        <parent>onu-1/2/16/1/1</parent>
+        <parent-rel-pos>2</parent-rel-pos>
+      </component>
+
+      <component>
+        <name>onu-1/2/1/1/1</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:xpon-nt</class>
+      </component>
+      <component>
+        <name>onu-1/2/1/1/1-trs</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver</class>
+        <parent>onu-1/2/1/1/1</parent>
+        <parent-rel-pos>1</parent-rel-pos>
+      </component>
+      <component>
+        <name>onu-1/2/1/1/1-wan</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver-link</class>
+        <parent>onu-1/2/1/1/1-trs</parent>
+        <parent-rel-pos>1</parent-rel-pos>
+      </component>
+      <component>
+        <name>onu-eth-1/2/1/1/1/1</name>
+        <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:rj45</class>
+        <parent>onu-1/2/1/1/1</parent>
+        <parent-rel-pos>1</parent-rel-pos>
+      </component>
+    </hardware>
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+      <interface>
+        <name>channelgroup.16</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-group</type>
+        <enabled>true</enabled>
+        <channel-group xmlns="urn:bbf:yang:bbf-xpon">
+          <polling-period>100</polling-period>
+          <raman-mitigation>raman-none</raman-mitigation>
+          <system-id>00000</system-id>
+          <pon-pools>
+            <pon-pool>
+              <name>pool1</name>
+              <alloc-id-values>1110-1120</alloc-id-values>
+              <gemport-values>1131-1239</gemport-values>
+              <onu-id-values>2,111,122</onu-id-values>
+              <channel-termination-ref>channeltermination.16</channel-termination-ref>
+            </pon-pool>
+          </pon-pools>
+        </channel-group>
+      </interface>
+      <interface>
+        <name>channelpair.16</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-pair</type>
+        <enabled>true</enabled>
+        <channel-pair xmlns="urn:bbf:yang:bbf-xpon">
+          <channel-group-ref>channelgroup.16</channel-group-ref>
+          <wavelength-prof-ref>wavelengthprofile.A</wavelength-prof-ref>
+          <channel-pair-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-pair-type>
+          <channel-partition-ref>channelpartition.16</channel-partition-ref>
+        </channel-pair>
+      </interface>
+      <interface>
+        <name>channelpartition.16</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-partition</type>
+        <enabled>true</enabled>
+        <channel-partition xmlns="urn:bbf:yang:bbf-xpon">
+          <channel-group-ref>channelgroup.16</channel-group-ref>
+          <channel-partition-index>0</channel-partition-index>
+          <closest-onu-distance>0</closest-onu-distance>
+          <maximum-differential-xpon-distance>20</maximum-differential-xpon-distance>
+          <authentication-method>serial-number</authentication-method>
+        </channel-partition>
+      </interface>
+      <interface>
+        <name>channeltermination.16</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-termination</type>
+        <enabled>true</enabled>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">pon-1/2/16/1</port-layer-if>
+        </hardware-component>
+        <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+          <channel-pair-ref>channelpair.16</channel-pair-ref>
+          <channel-termination-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-termination-type>
+          <xgs-pon-id>0</xgs-pon-id>
+          <location xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:inside-olt</location>
+          <notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-v-ani-known-and-o5-failed-undefined</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-no-v-ani-known-and-o5-failed-no-onu-id</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-not-present-without-v-ani</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-not-present-with-v-ani</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-on-intended-channel-termination</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-v-ani-known-and-o5-failed-no-onu-id</notifiable-onu-presence-states>
+        </channel-termination>
+      </interface>
+
+      <interface>
+        <name>channelgroup.1</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-group</type>
+        <enabled>true</enabled>
+        <channel-group xmlns="urn:bbf:yang:bbf-xpon">
+          <polling-period>100</polling-period>
+          <raman-mitigation>raman-none</raman-mitigation>
+          <system-id>00000</system-id>
+          <pon-pools>
+            <pon-pool>
+              <name>pool1</name>
+              <alloc-id-values>1110-1120</alloc-id-values>
+              <gemport-values>1131-1239</gemport-values>
+              <onu-id-values>2,111,122</onu-id-values>
+              <channel-termination-ref>channeltermination.1</channel-termination-ref>
+            </pon-pool>
+          </pon-pools>
+        </channel-group>
+      </interface>
+      <interface>
+        <name>channelpair.1</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-pair</type>
+        <enabled>true</enabled>
+        <channel-pair xmlns="urn:bbf:yang:bbf-xpon">
+          <channel-group-ref>channelgroup.1</channel-group-ref>
+          <wavelength-prof-ref>wavelengthprofile.A</wavelength-prof-ref>
+          <channel-pair-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-pair-type>
+          <channel-partition-ref>channelpartition.1</channel-partition-ref>
+        </channel-pair>
+      </interface>
+      <interface>
+        <name>channelpartition.1</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-partition</type>
+        <enabled>true</enabled>
+        <channel-partition xmlns="urn:bbf:yang:bbf-xpon">
+          <channel-group-ref>channelgroup.1</channel-group-ref>
+          <channel-partition-index>0</channel-partition-index>
+          <closest-onu-distance>0</closest-onu-distance>
+          <maximum-differential-xpon-distance>20</maximum-differential-xpon-distance>
+          <authentication-method>serial-number</authentication-method>
+        </channel-partition>
+      </interface>
+      <interface>
+        <name>channeltermination.1</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-termination</type>
+        <enabled>true</enabled>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">pon-1/2/1/1</port-layer-if>
+        </hardware-component>
+        <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
+          <channel-pair-ref>channelpair.1</channel-pair-ref>
+          <channel-termination-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-termination-type>
+          <xgs-pon-id>0</xgs-pon-id>
+          <location xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:inside-olt</location>
+          <notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-v-ani-known-and-o5-failed-undefined</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-no-v-ani-known-and-o5-failed-no-onu-id</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-not-present-without-v-ani</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-not-present-with-v-ani</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-on-intended-channel-termination</notifiable-onu-presence-states>
+						<notifiable-onu-presence-states xmlns="urn:bbf:yang:bbf-xpon-onu-state" xmlns:bbf-xpon-onu-types="urn:bbf:yang:bbf-xpon-onu-types">bbf-xpon-onu-types:onu-present-and-v-ani-known-and-o5-failed-no-onu-id</notifiable-onu-presence-states>
+        </channel-termination>
+      </interface>
+
+      <interface>
+        <name>onu-16/1_ani</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:ani</type>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">onu-1/2/16/1/1-wan</port-layer-if>
+        </hardware-component>
+      </interface>
+      <interface>
+        <name>onu-16/1_eth1</name>
+        <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">onu-eth-1/2/16/1/1/1</port-layer-if>
+        </hardware-component>
+      </interface>
+      <interface>
+        <name>onu-16/1_eth2</name>
+        <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">onu-eth-1/2/16/1/1/2</port-layer-if>
+        </hardware-component>
+      </interface>
+      <interface>
+        <name>onu-16/1_vani</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:v-ani</type>
+        <enabled>true</enabled>
+        <v-ani xmlns="urn:bbf:yang:bbf-xponvani">
+          <channel-partition>channelpartition.16</channel-partition>
+          <expected-serial-number>SCOMA1200482</expected-serial-number>
+          <preferred-channel-pair>channelpair.16</preferred-channel-pair>
+        </v-ani>
+      </interface>
+      <interface>
+        <name>onu-16/1_vnet1</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:olt-v-enet</type>
+        <olt-v-enet xmlns="urn:bbf:yang:bbf-xponvani">
+          <lower-layer-interface>onu-16/1_vani</lower-layer-interface>
+        </olt-v-enet>
+      </interface>
+      <interface>
+        <name>onu-16/1_vnet2</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:olt-v-enet</type>
+        <olt-v-enet xmlns="urn:bbf:yang:bbf-xponvani">
+          <lower-layer-interface>onu-16/1_vani</lower-layer-interface>
+        </olt-v-enet>
+      </interface>
+
+      <interface>
+        <name>onu-1/1_ani</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:ani</type>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">onu-1/2/1/1/1-wan</port-layer-if>
+        </hardware-component>
+      </interface>
+      <interface>
+        <name>onu-1/1_eth1</name>
+        <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+        <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
+          <port-layer-if nc:operation="replace">onu-eth-1/2/1/1/1/1</port-layer-if>
+        </hardware-component>
+      </interface>
+      <interface>
+        <name>onu-1/1_vani</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:v-ani</type>
+        <enabled>true</enabled>
+        <v-ani xmlns="urn:bbf:yang:bbf-xponvani">
+          <channel-partition>channelpartition.1</channel-partition>
+          <expected-serial-number>HTSZ39002549</expected-serial-number>
+          <preferred-channel-pair>channelpair.1</preferred-channel-pair>
+        </v-ani>
+      </interface>
+      <interface>
+        <name>onu-1/1_vnet1</name>
+        <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:olt-v-enet</type>
+        <olt-v-enet xmlns="urn:bbf:yang:bbf-xponvani">
+          <lower-layer-interface>onu-1/1_vani</lower-layer-interface>
+        </olt-v-enet>
+      </interface>
+    </interfaces>
+    <link-table xmlns="urn:bbf:yang:bbf-link-table">
+      <link-table>
+        <from-interface>onu-16/1_ani</from-interface>
+        <to-interface nc:operation="replace">onu-16/1_vani</to-interface>
+      </link-table>
+      <link-table>
+        <from-interface>onu-16/1_eth1</from-interface>
+        <to-interface nc:operation="replace">onu-16/1_vnet1</to-interface>
+      </link-table>
+      <link-table>
+        <from-interface>onu-16/1_eth2</from-interface>
+        <to-interface nc:operation="replace">onu-16/1_vnet2</to-interface>
+      </link-table>
+
+      <link-table>
+        <from-interface>onu-1/1_ani</from-interface>
+        <to-interface nc:operation="replace">onu-1/1_vani</to-interface>
+      </link-table>
+      <link-table>
+        <from-interface>onu-1/1_eth1</from-interface>
+        <to-interface nc:operation="replace">onu-1/1_vnet1</to-interface>
+      </link-table>
+    </link-table>
+    </config>    
+  </edit-config>
+</rpc>

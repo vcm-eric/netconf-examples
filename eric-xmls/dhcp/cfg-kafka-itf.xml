@@ -1,0 +1,16 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <running />
+        </target>
+        <config>
+            <device xmlns="urn:vecima:yang:vecima-device">
+                <kafka-interface>
+                    <address xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="replace">10.254.23.101</address>
+                    <!-->10.254.23.101<!-->
+                </kafka-interface>
+            </device>
+        </config>
+    </edit-config>
+</rpc>
+ 
