@@ -78,7 +78,7 @@
           <multicast-gemport>
             <name>bgem_301</name>
               <gemport-id>8190</gemport-id>
-            <interface>cpair-1/2/16/1</interface>
+            <interface>cpair-1/2/1/1</interface>
             <traffic-class>0</traffic-class>
             <is-broadcast>true</is-broadcast>
           </multicast-gemport>
@@ -87,7 +87,7 @@
       <xpongemtcont xmlns="urn:bbf:yang:bbf-xpongemtcont">
         <traffic-descriptor-profiles>
           <traffic-descriptor-profile>
-            <name>tdp-1/2/16/1/1</name>
+            <name>tdp-1/2/1/1/1</name>
             <fixed-bandwidth>7962624000</fixed-bandwidth>
             <assured-bandwidth>0</assured-bandwidth>
             <maximum-bandwidth>7962624000</maximum-bandwidth>
@@ -96,47 +96,47 @@
         </traffic-descriptor-profiles>
         <tconts>
           <tcont>
-            <name>tcont-1/2/16/1/1/2</name>
-            <traffic-descriptor-profile-ref>tdp-1/2/16/1/1</traffic-descriptor-profile-ref>
-            <interface-reference>vani-1/2/16/1/1</interface-reference>
+            <name>tcont-1/2/1/1/1/2</name>
+            <traffic-descriptor-profile-ref>tdp-1/2/1/1/1</traffic-descriptor-profile-ref>
+            <interface-reference>vani-1/2/1/1/1</interface-reference>
           </tcont>
         </tconts>
         <gemports>
           <gemport>
-            <name>gem-1/2/16/1/1/2</name>
+            <name>gem-1/2/1/1/1/2</name>
             <traffic-class>0</traffic-class>
-            <tcont-ref>tcont-1/2/16/1/1/2</tcont-ref>
-            <interface>subif-olt-1/2/16/1/1/1/2-c301</interface>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>subif-olt-1/2/1/1/1/1/2-c301</interface>
           </gemport>
         </gemports>
       </xpongemtcont>
       <hardware xmlns="urn:ietf:params:xml:ns:yang:ietf-hardware">
         <component>
-          <name>onu-1/2/16/1/1</name>
+          <name>onu-1/2/1/1/1</name>
           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:xpon-nt</class>
         </component>
         <component>
-          <name>sfp-1/2/16/1/1</name>
+          <name>sfp-1/2/1/1/1</name>
           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver</class>
-          <parent>onu-1/2/16/1/1</parent>
+          <parent>onu-1/2/1/1/1</parent>
           <parent-rel-pos>1</parent-rel-pos>
         </component>
         <component>
-          <name>pon-1/2/16/1/1</name>
+          <name>pon-1/2/1/1/1</name>
           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver-link</class>
           <parent-rel-pos>1</parent-rel-pos>
-          <parent>sfp-1/2/16/1/1</parent>
+          <parent>sfp-1/2/1/1/1</parent>
         </component>
         <component>
-          <name>rj45-1/2/16/1/1/1/2</name>
+          <name>rj45-1/2/1/1/1/1/2</name>
           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:rj45</class>
-          <parent>onu-1/2/16/1/1</parent>
+          <parent>onu-1/2/1/1/1</parent>
           <parent-rel-pos>2</parent-rel-pos>
         </component>
       </hardware>
       <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
         <interface>
-          <name>cgrp-1/2/16/1</name>
+          <name>cgrp-1/2/1/1</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-group</type>
           <enabled>true</enabled>
           <channel-group xmlns="urn:bbf:yang:bbf-xpon">
@@ -149,17 +149,17 @@
                 <alloc-id-values>1024-1080</alloc-id-values>
                 <gemport-values>1024-1080</gemport-values>
                 <onu-id-values>55-100</onu-id-values>
-                <channel-termination-ref>cterm-1/2/16/1</channel-termination-ref>
+                <channel-termination-ref>cterm-1/2/1/1</channel-termination-ref>
               </pon-pool>
             </pon-pools>
           </channel-group>
         </interface>
         <interface>
-          <name>cpart-1/2/16/1</name>
+          <name>cpart-1/2/1/1</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-partition</type>
           <enabled>true</enabled>
           <channel-partition xmlns="urn:bbf:yang:bbf-xpon">
-            <channel-group-ref>cgrp-1/2/16/1</channel-group-ref>
+            <channel-group-ref>cgrp-1/2/1/1</channel-group-ref>
             <channel-partition-index>0</channel-partition-index>
             <closest-onu-distance>0</closest-onu-distance>
             <maximum-differential-xpon-distance>20</maximum-differential-xpon-distance>
@@ -167,25 +167,25 @@
           </channel-partition>
         </interface>
         <interface>
-          <name>cpair-1/2/16/1</name>
+          <name>cpair-1/2/1/1</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-pair</type>
           <enabled>true</enabled>
           <channel-pair xmlns="urn:bbf:yang:bbf-xpon">
-            <channel-group-ref>cgrp-1/2/16/1</channel-group-ref>
+            <channel-group-ref>cgrp-1/2/1/1</channel-group-ref>
             <wavelength-prof-ref>wavelengthprofile.A</wavelength-prof-ref>
             <channel-pair-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-pair-type>
-            <channel-partition-ref>cpart-1/2/16/1</channel-partition-ref>
+            <channel-partition-ref>cpart-1/2/1/1</channel-partition-ref>
           </channel-pair>
         </interface>
         <interface>
-          <name>cterm-1/2/16/1</name>
+          <name>cterm-1/2/1/1</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:channel-termination</type>
           <enabled>true</enabled>
           <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
-            <port-layer-if>pon-1/2/16/1</port-layer-if>
+            <port-layer-if>pon-1/2/1/1</port-layer-if>
           </hardware-component>
           <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
-            <channel-pair-ref>cpair-1/2/16/1</channel-pair-ref>
+            <channel-pair-ref>cpair-1/2/1/1</channel-pair-ref>
             <channel-termination-type xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:xgs</channel-termination-type>
             <xgs-pon-id>0</xgs-pon-id>
             <location xmlns:bbf-xpon-types="urn:bbf:yang:bbf-xpon-types">bbf-xpon-types:inside-olt</location>
@@ -194,39 +194,39 @@
           </channel-termination>
         </interface>
         <interface>
-          <name>ani-1/2/16/1/1</name>
+          <name>ani-1/2/1/1/1</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:ani</type>
           <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
-            <port-layer-if>pon-1/2/16/1/1</port-layer-if>
+            <port-layer-if>pon-1/2/1/1/1</port-layer-if>
           </hardware-component>
           <telemetry-enabled xmlns="urn:vecima:yang:vecima-interfaces">true</telemetry-enabled>
         </interface>
         <interface>
-          <name>vani-1/2/16/1/1</name>
+          <name>vani-1/2/1/1/1</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:v-ani</type>
           <v-ani xmlns="urn:bbf:yang:bbf-xponvani">
-            <channel-partition>cpart-1/2/16/1</channel-partition>
+            <channel-partition>cpart-1/2/1/1</channel-partition>
             <expected-serial-number>SCOMA1200482</expected-serial-number>
-            <preferred-channel-pair>cpair-1/2/16/1</preferred-channel-pair>
+            <preferred-channel-pair>cpair-1/2/1/1</preferred-channel-pair>
             <upstream-fec>false</upstream-fec>
           </v-ani>
         </interface>
         <interface>
-          <name>uni-1/2/16/1/1/1/2</name>
+          <name>uni-1/2/1/1/1/1/2</name>
           <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
           <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
-            <port-layer-if>rj45-1/2/16/1/1/1/2</port-layer-if>
+            <port-layer-if>rj45-1/2/1/1/1/1/2</port-layer-if>
           </hardware-component>
         </interface>
         <interface>
-          <name>venet-1/2/16/1/1/1/2</name>
+          <name>venet-1/2/1/1/1/1/2</name>
           <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:olt-v-enet</type>
           <olt-v-enet xmlns="urn:bbf:yang:bbf-xponvani">
-            <lower-layer-interface>vani-1/2/16/1/1</lower-layer-interface>
+            <lower-layer-interface>vani-1/2/1/1/1</lower-layer-interface>
           </olt-v-enet>
         </interface>
         <interface>
-          <name>subif-uni-1/2/16/1/1/1/2-untag</name>
+          <name>subif-uni-1/2/1/1/1/1/2-untag</name>
           <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
           <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp-all-to-tc0</ingress-qos-policy-profile>
           <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
@@ -258,11 +258,11 @@
             </egress-rewrite>
           </inline-frame-processing>
           <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <interface>uni-1/2/16/1/1/1/2</interface>
+            <interface>uni-1/2/1/1/1/1/2</interface>
           </subif-lower-layer>
         </interface>
         <interface>
-          <name>subif-olt-1/2/16/1/1/1/2-c301</name>
+          <name>subif-olt-1/2/1/1/1/1/2-c301</name>
           <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
             <!--l2-dhcpv4-relay xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
               <enable>true</enable>
@@ -295,7 +295,7 @@
             </ingress-rule>
           </inline-frame-processing>
           <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <interface>venet-1/2/16/1/1/1/2</interface>
+            <interface>venet-1/2/1/1/1/1/2</interface>
           </subif-lower-layer>
         </interface>
         <interface>
@@ -330,12 +330,12 @@
       </interfaces>
       <link-table xmlns="urn:bbf:yang:bbf-link-table">
         <link-table>
-          <from-interface>ani-1/2/16/1/1</from-interface>
-          <to-interface nc:operation="replace">vani-1/2/16/1/1</to-interface>
+          <from-interface>ani-1/2/1/1/1</from-interface>
+          <to-interface nc:operation="replace">vani-1/2/1/1/1</to-interface>
         </link-table>
         <link-table>
-          <from-interface>uni-1/2/16/1/1/1/2</from-interface>
-          <to-interface nc:operation="replace">venet-1/2/16/1/1/1/2</to-interface>
+          <from-interface>uni-1/2/1/1/1/1/2</from-interface>
+          <to-interface nc:operation="replace">venet-1/2/1/1/1/1/2</to-interface>
         </link-table>
       </link-table>
       <forwarding xmlns="urn:bbf:yang:bbf-l2-forwarding">
@@ -344,8 +344,8 @@
             <name>fwd_untag_to_c301</name>
             <ports>
               <port>
-                <name>fwd-port-acc-1/2/16/1/1/1/2-c301</name>
-                <sub-interface>subif-olt-1/2/16/1/1/1/2-c301</sub-interface>
+                <name>fwd-port-acc-1/2/1/1/1/1/2-c301</name>
+                <sub-interface>subif-olt-1/2/1/1/1/1/2-c301</sub-interface>
               </port>
               <port>
                 <name>fwd-port-nw-lag-2-c301</name>

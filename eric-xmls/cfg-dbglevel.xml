@@ -7,7 +7,7 @@
     <error-option>rollback-on-error</error-option>
     <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
         <subsys xmlns="urn:vecima:yang:vecima-olt-subsys">
-            <polt>
+            <!--polt>
                 <logging>
                     <source>
                         <name>sysrepo</name>
@@ -30,8 +30,8 @@
                         <severity>info</severity>
                     </source>
                 </logging>
-            </polt>
-            <ph>
+            </polt-->
+            <!--ph>
                 <logging>
                     <source>
                         <name>app</name>
@@ -47,6 +47,22 @@
                     </source>
                 </logging>
             </ph>
+            <metrics-mgr>
+                <logging>
+                    <source>
+                        <name>app</name>
+                        <severity>info</severity>
+                    </source>
+                </logging>
+            </metrics-mgr-->
+            <lldp-ctlr>
+                <logging>
+                    <source>
+                        <name>app</name>
+                        <severity>debug</severity>
+                    </source>
+                </logging>
+            </lldp-ctlr>
         </subsys>
     </config>
 </edit-config>

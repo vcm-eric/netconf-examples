@@ -36,7 +36,7 @@
       </dhcpv6-ldra-profiles-->
       <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
         <interface  nc:operation="merge">
-          <name>subif-olt-1/2/16/1/1/1/2-c301</name>
+          <name>subif-olt-1/2/1/1/1/1/2-c301</name>
            <l2-dhcpv4-relay xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
               <enable>true</enable>
               <profile-ref>dhcpv4_relay_profile</profile-ref>

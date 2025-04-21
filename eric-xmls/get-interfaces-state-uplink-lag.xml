@@ -3,16 +3,24 @@
       <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:operational</datastore>
       <subtree-filter>
         <interfaces-state xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-          <interface>
-              <name>uplink-1</name>
-              <admin-status/>
-              <oper-status/>
-          </interface>
-          <interface>
-              <name>lag-1</name>
-              <admin-status/>
-              <oper-status/>
-          </interface>
+        <interface>
+          <name>uplink-1</name>
+        </interface>
+        <interface>
+          <name>uplink-2</name>
+        </interface>
+        <interface>
+          <name>uplink-3</name>
+        </interface>
+        <interface>
+          <name>uplink-4</name>
+        </interface>
+        <interface>
+          <name>lag-1</name>
+        </interface>
+        <interface>
+          <name>lag-2</name>
+        </interface>
         </interfaces-state>
       </subtree-filter>
     </get-data>

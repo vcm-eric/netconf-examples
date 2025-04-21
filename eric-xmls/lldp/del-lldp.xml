@@ -1,0 +1,11 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="del-rot-cfg">
+<edit-config>
+    <target><running/></target>
+    <test-option>test-then-set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <lldp xmlns="urn:ieee:std:802.1AB:yang:ieee802-dot1ab-lldp" nc:operation="delete">
+      </lldp>
+    </config>
+</edit-config>
+</rpc>

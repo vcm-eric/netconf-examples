@@ -3,11 +3,11 @@
   <action xmlns="urn:ietf:params:xml:ns:yang:1">
     <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
         <interface>
-            <name>ct.1</name>
+            <name>channeltermination.16</name>
             <channel-termination xmlns="urn:bbf:yang:bbf-xpon">
               <troubleshoot-onu xmlns="urn:vecima:yang:vecima-xpon">
-                <onu-serial-number>HTSZ39002549</onu-serial-number>
-                <action>disable</action>
+                <onu-serial-number>SCOMA1200482</onu-serial-number>
+                <action>enable</action>
               </troubleshoot-onu>
             </channel-termination>
         </interface>

@@ -19,7 +19,7 @@
             <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
               <ingress-rule>
                 <rule>
-                  <name>n1_c1410_c501</name>
+                  <name>n1_c3001_c301</name>
                   <priority>1</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -27,14 +27,14 @@
                         <index>0</index>
                         <dot1q-tag>
                           <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                          <vlan-id>1410</vlan-id>
+                          <vlan-id>3001</vlan-id>
                         </dot1q-tag>
                       </tag>
                       <tag>
                         <index>1</index>
                         <dot1q-tag>
                           <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                          <vlan-id>501</vlan-id>
+                          <vlan-id>301</vlan-id>
                         </dot1q-tag>
                       </tag>
                     </match-criteria>
@@ -49,7 +49,7 @@
                   <index>0</index>
                   <dot1q-tag>
                     <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                    <vlan-id>1410</vlan-id>
+                    <vlan-id>3001</vlan-id>
                     <pbit-from-tag-index>0</pbit-from-tag-index>
                     <write-dei-0/>
                   </dot1q-tag>
@@ -68,7 +68,7 @@
             <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
               <ingress-rule>
                 <rule>
-                  <name>default_untag_to_c501</name>
+                  <name>default_untag_to_c301</name>
                   <priority>2</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -81,7 +81,7 @@
                       <index>0</index>
                       <dot1q-tag>
                         <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                        <vlan-id>501</vlan-id>
+                        <vlan-id>301</vlan-id>
                         <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
                         <write-dei-0/>
                       </dot1q-tag>
@@ -89,7 +89,7 @@
                   </ingress-rewrite>
                 </rule>
                 <rule>
-                  <name>ipoe_untag_to_c501</name>
+                  <name>ipoe_untag_to_c301</name>
                   <priority>1</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -103,7 +103,7 @@
                       <index>0</index>
                       <dot1q-tag>
                         <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                        <vlan-id>501</vlan-id>
+                        <vlan-id>301</vlan-id>
                         <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
                         <write-dei-0/>
                       </dot1q-tag>
@@ -138,7 +138,7 @@
             <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
               <ingress-rule>
                 <rule>
-                  <name>cvlan501</name>
+                  <name>cvlan301</name>
                   <priority>1</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -146,7 +146,7 @@
                         <index>0</index>
                         <dot1q-tag>
                           <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                          <vlan-id>501</vlan-id>
+                          <vlan-id>301</vlan-id>
                         </dot1q-tag>
                       </tag>
                     </match-criteria>
@@ -166,7 +166,7 @@
             <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
               <ingress-rule>
                  <rule>
-                  <name>default_untag_to_c501</name>
+                  <name>default_untag_to_c301</name>
                   <priority>2</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -179,7 +179,7 @@
                       <index>0</index>
                       <dot1q-tag>
                         <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                        <vlan-id>501</vlan-id>
+                        <vlan-id>301</vlan-id>
                         <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
                         <write-dei-0/>
                       </dot1q-tag>
@@ -187,7 +187,7 @@
                   </ingress-rewrite>
                 </rule>
                 <rule>
-                  <name>ipoe_untag_to_c501</name>
+                  <name>ipoe_untag_to_c301</name>
                   <priority>1</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -201,7 +201,7 @@
                       <index>0</index>
                       <dot1q-tag>
                         <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                        <vlan-id>501</vlan-id>
+                        <vlan-id>301</vlan-id>
                         <pbit-marking-index xmlns="urn:bbf:yang:bbf-qos-policies-sub-interfaces">0</pbit-marking-index>
                         <write-dei-0/>
                       </dot1q-tag>
@@ -236,7 +236,7 @@
             <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
               <ingress-rule>
                 <rule>
-                  <name>cvlan501</name>
+                  <name>cvlan301</name>
                   <priority>1</priority>
                   <flexible-match>
                     <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -244,7 +244,7 @@
                         <index>0</index>
                         <dot1q-tag>
                           <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                          <vlan-id>501</vlan-id>
+                          <vlan-id>301</vlan-id>
                         </dot1q-tag>
                       </tag>
                     </match-criteria>
@@ -375,7 +375,7 @@
         <forwarding xmlns="urn:bbf:yang:bbf-l2-forwarding">
           <forwarders>
             <forwarder>
-              <name>fwd_untag_to_cvlan_1410_501</name>
+              <name>fwd_untag_to_cvlan_3001_301</name>
               <ports>
                 <port>
                   <name>net_sub1</name>

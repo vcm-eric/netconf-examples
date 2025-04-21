@@ -2,12 +2,14 @@
   <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
     <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:running</datastore>
     <subtree-filter>
-      <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-        <interface>
-          <name>subif-olt-1/2/1/1/1/1/2-c301</name>
-          <dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra"/>
-        </interface>
-      </interfaces>
+      <lldp xmlns="urn:ieee:std:802.1AB:yang:ieee802-dot1ab-lldp">
+        <!--message-tx-interval/>
+        <message-tx-hold-multiplier/>
+        <telemetry xmlns="urn:vecima:yang:vecima-lldp"/>
+        <port>
+          <admin-status/>
+        </port-->
+      </lldp>
     </subtree-filter>
   </get-data>
 </rpc>

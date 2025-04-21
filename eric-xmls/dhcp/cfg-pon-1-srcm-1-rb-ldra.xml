@@ -1,59 +1,194 @@
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="5">
   <edit-config>
     <target>
-      <running/>
+      <running />
     </target>
     <test-option>test-then-set</test-option>
     <error-option>rollback-on-error</error-option>
     <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
       <system xmlns="urn:ietf:params:xml:ns:yang:ietf-system">
-          <hostname>seattle</hostname>
-          <subscriber-management xmlns="urn:bbf:yang:bbf-subscriber-profiles">
-              <access-node-id>vecima_qd_seattle</access-node-id>
-          </subscriber-management>
+        <hostname>zolt4</hostname>
+        <subscriber-management xmlns="urn:bbf:yang:bbf-subscriber-profiles">
+          <access-node-id>vecima_ral_zolt4</access-node-id>
+        </subscriber-management>
       </system>
       <classifiers xmlns="urn:bbf:yang:bbf-qos-classifiers">
         <classifier-entry>
-          <name>cls-all-to-tc0</name>
-          <all-packets/>
+          <name>i_pbit0_to_tc0</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>0</in-pbit-list>
+            </tag>
+          </vlans>
           <classifier-action-entry-cfg>
             <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
             <scheduling-traffic-class>0</scheduling-traffic-class>
           </classifier-action-entry-cfg>
         </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit1_to_tc1</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>1</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>1</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit2_to_tc2</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>2</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>2</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit3_to_tc3</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>3</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>3</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit4_to_tc4</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>4</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>4</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit5_to_tc5</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>5</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>5</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit6_to_tc6</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>6</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>6</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
+        <classifier-entry>
+          <name>i_pbit7_to_tc7</name>
+          <vlans xmlns="urn:bbf:yang:bbf-qos-composite-filters">
+            <tag>
+              <index>0</index>
+              <in-pbit-list>7</in-pbit-list>
+            </tag>
+          </vlans>
+          <classifier-action-entry-cfg>
+            <bbf-qos-cls:action-type xmlns:bbf-qos-cls="urn:bbf:yang:bbf-qos-classifiers">bbf-qos-cls:scheduling-traffic-class</bbf-qos-cls:action-type>
+            <scheduling-traffic-class>7</scheduling-traffic-class>
+          </classifier-action-entry-cfg>
+        </classifier-entry>
       </classifiers>
       <policies xmlns="urn:bbf:yang:bbf-qos-policies">
         <policy>
-          <name>policy-all-to-tc0</name>
+          <name>ptag_pbit_tc</name>
           <classifiers>
-            <name>cls-all-to-tc0</name>
+            <name>i_pbit0_to_tc0</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit1_to_tc1</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit2_to_tc2</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit3_to_tc3</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit4_to_tc4</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit5_to_tc5</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit6_to_tc6</name>
+          </classifiers>
+          <classifiers>
+            <name>i_pbit7_to_tc7</name>
           </classifiers>
         </policy>
       </policies>
       <qos-policy-profiles xmlns="urn:bbf:yang:bbf-qos-policies">
         <policy-profile>
-          <name>pp-all-to-tc0</name>
+          <name>pp_ptag_pbit</name>
           <policy-list>
-            <name>policy-all-to-tc0</name>
+            <name>ptag_pbit_tc</name>
           </policy-list>
         </policy-profile>
       </qos-policy-profiles>
+      <l2-dhcpv4-relay-profiles xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
+        <l2-dhcpv4-relay-profile>
+          <name>dhcp_relay_profile</name>
+          <option82-format>
+            <suboptions>circuit-id</suboptions>
+            <default-circuit-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-circuit-id-syntax>
+          </option82-format>
+          <option82-format>
+            <suboptions>remote-id</suboptions>
+            <default-remote-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-remote-id-syntax>
+          </option82-format>
+        </l2-dhcpv4-relay-profile>
+      </l2-dhcpv4-relay-profiles>
       <dhcpv6-ldra-profiles xmlns="urn:bbf:yang:bbf-ldra">
         <dhcpv6-ldra-profile>
           <name>dhcpv6_relay_profile</name>
           <options>
             <option>interface-id</option>
             <option>remote-id</option>
+            <!--
             <option>enterprise-number</option>
+            -->
             <default-interface-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-interface-id-syntax>
             <default-remote-id-syntax>Access-Node-ID eth Board/Pon/OnuID/OnuPort/OnuSN</default-remote-id-syntax>
+            <!--
             <enterprise-number>27427</enterprise-number>
-            <start-numbering-from-zero>true</start-numbering-from-zero>
-            <use-leading-zeroes>true</use-leading-zeroes>
+            -->
+            <start-numbering-from-zero>false</start-numbering-from-zero>
+            <use-leading-zeroes>false</use-leading-zeroes>
           </options>
         </dhcpv6-ldra-profile>
       </dhcpv6-ldra-profiles>
-      <xpon xmlns="urn:bbf:yang:bbf-xpon">
+      <xpon
+        xmlns="urn:bbf:yang:bbf-xpon">
         <wavelength-profiles>
           <wavelength-profile>
             <name>wavelengthprofile.A</name>
@@ -64,7 +199,7 @@
         <multicast-gemports>
           <multicast-gemport>
             <name>bgem_301</name>
-              <gemport-id>8190</gemport-id>
+            <gemport-id>8190</gemport-id>
             <interface>cpair-1/2/1/1</interface>
             <traffic-class>0</traffic-class>
             <is-broadcast>true</is-broadcast>
@@ -83,11 +218,6 @@
         </traffic-descriptor-profiles>
         <tconts>
           <tcont>
-            <name>tcont-1/2/1/1/1/1</name>
-            <traffic-descriptor-profile-ref>tdp-1/2/1/1/1</traffic-descriptor-profile-ref>
-            <interface-reference>vani-1/2/1/1/1</interface-reference>
-          </tcont>
-          <tcont>
             <name>tcont-1/2/1/1/1/2</name>
             <traffic-descriptor-profile-ref>tdp-1/2/1/1/1</traffic-descriptor-profile-ref>
             <interface-reference>vani-1/2/1/1/1</interface-reference>
@@ -95,16 +225,52 @@
         </tconts>
         <gemports>
           <gemport>
-            <name>gem-1/2/1/1/1/1</name>
-            <traffic-class>0</traffic-class>
-            <tcont-ref>tcont-1/2/1/1/1/1</tcont-ref>
-            <interface>subif-olt-1/2/1/1/1/1/1-c301</interface>
-          </gemport>
-          <gemport>
-            <name>gem-1/2/1/1/1/2</name>
+            <name>gem-1/2/1/1/1/2-tc0</name>
             <traffic-class>0</traffic-class>
             <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
-            <interface>subif-olt-1/2/1/1/1/1/2-c301</interface>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc1</name>
+            <traffic-class>1</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc2</name>
+            <traffic-class>2</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc3</name>
+            <traffic-class>3</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc4</name>
+            <traffic-class>4</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc5</name>
+            <traffic-class>5</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc6</name>
+            <traffic-class>6</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </gemport>
+          <gemport>
+            <name>gem-1/2/1/1/1/2-tc7</name>
+            <traffic-class>7</traffic-class>
+            <tcont-ref>tcont-1/2/1/1/1/2</tcont-ref>
+            <interface>venet-1/2/1/1/1/1/2</interface>
           </gemport>
         </gemports>
       </xpongemtcont>
@@ -124,12 +290,6 @@
           <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:transceiver-link</class>
           <parent-rel-pos>1</parent-rel-pos>
           <parent>sfp-1/2/1/1/1</parent>
-        </component>
-        <component>
-          <name>rj45-1/2/1/1/1/1/1</name>
-          <class xmlns:bbf-hwt="urn:bbf:yang:bbf-hardware-types">bbf-hwt:rj45</class>
-          <parent>onu-1/2/1/1/1</parent>
-          <parent-rel-pos>1</parent-rel-pos>
         </component>
         <component>
           <name>rj45-1/2/1/1/1/1/2</name>
@@ -216,25 +376,11 @@
           </v-ani>
         </interface>
         <interface>
-          <name>uni-1/2/1/1/1/1/1</name>
-          <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
-          <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
-            <port-layer-if>rj45-1/2/1/1/1/1/1</port-layer-if>
-          </hardware-component>
-        </interface>
-        <interface>
           <name>uni-1/2/1/1/1/1/2</name>
           <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
           <hardware-component xmlns="urn:bbf:yang:bbf-hardware">
             <port-layer-if>rj45-1/2/1/1/1/1/2</port-layer-if>
           </hardware-component>
-        </interface>
-        <interface>
-          <name>venet-1/2/1/1/1/1/1</name>
-          <type xmlns:bbf-xponift="urn:bbf:yang:bbf-xpon-if-type">bbf-xponift:olt-v-enet</type>
-          <olt-v-enet xmlns="urn:bbf:yang:bbf-xponvani">
-            <lower-layer-interface>vani-1/2/1/1/1</lower-layer-interface>
-          </olt-v-enet>
         </interface>
         <interface>
           <name>venet-1/2/1/1/1/1/2</name>
@@ -244,92 +390,16 @@
           </olt-v-enet>
         </interface>
         <interface>
-          <name>subif-uni-1/2/1/1/1/1/1-untag</name>
-          <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
-          <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp-all-to-tc0</ingress-qos-policy-profile>
-          <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <ingress-rule>
-              <rule>
-                <name>usr_untag_to_c301</name>
-                <priority>1</priority>
-                <flexible-match>
-                  <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
-                    <untagged/>
-                  </match-criteria>
-                </flexible-match>
-                <ingress-rewrite>
-                  <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">0</pop-tags>
-                  <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
-                    <index>0</index>
-                    <dot1q-tag>
-                      <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                      <vlan-id>301</vlan-id>
-                      <!-- This is for 7750 subscriber interface which support ldra, the downstream pbit is 7-->
-                      <write-pbit>7</write-pbit>
-                      <write-dei-0/>
-                    </dot1q-tag>
-                  </push-tag>
-                </ingress-rewrite>
-              </rule>
-            </ingress-rule>
-            <egress-rewrite>
-              <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
-            </egress-rewrite>
-          </inline-frame-processing>
-          <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <interface>uni-1/2/1/1/1/1/1</interface>
-          </subif-lower-layer>
-        </interface>
-        <interface>
           <name>subif-uni-1/2/1/1/1/1/2-untag</name>
           <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
-          <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp-all-to-tc0</ingress-qos-policy-profile>
-          <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <ingress-rule>
-              <rule>
-                <name>usr_untag_to_c301</name>
-                <priority>1</priority>
-                <flexible-match>
-                  <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
-                    <untagged/>
-                  </match-criteria>
-                </flexible-match>
-                <ingress-rewrite>
-                  <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">0</pop-tags>
-                  <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
-                    <index>0</index>
-                    <dot1q-tag>
-                      <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                      <vlan-id>301</vlan-id>
-                      <!-- This is for 7750 subscriber interface which support ldra, the downstream pbit is 7-->
-                      <write-pbit>7</write-pbit>
-                      <write-dei-0/>
-                    </dot1q-tag>
-                  </push-tag>
-                </ingress-rewrite>
-              </rule>
-            </ingress-rule>
-            <egress-rewrite>
-              <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
-            </egress-rewrite>
-          </inline-frame-processing>
           <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
             <interface>uni-1/2/1/1/1/1/2</interface>
           </subif-lower-layer>
-        </interface>
-        <interface>
-          <name>subif-olt-1/2/1/1/1/1/1-c301</name>
-          <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
-          <!--dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra">
-            <enable>true</enable>
-            <profile-ref>dhcpv6_relay_profile</profile-ref>
-            <trusted-port>true</trusted-port>
-          </dhcpv6-ldra-->
-          <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp-all-to-tc0</ingress-qos-policy-profile>
+          <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp_ptag_pbit</ingress-qos-policy-profile>
           <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
             <ingress-rule>
               <rule>
-                <name>cvlan301</name>
+                <name>usr_ptag_to_c301</name>
                 <priority>1</priority>
                 <flexible-match>
                   <match-criteria xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
@@ -337,27 +407,56 @@
                       <index>0</index>
                       <dot1q-tag>
                         <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
-                        <vlan-id>301</vlan-id>
+                        <vlan-id>priority-tagged</vlan-id>
                       </dot1q-tag>
                     </tag>
                   </match-criteria>
                 </flexible-match>
+                <ingress-rewrite>
+                  <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
+                  <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                    <index>0</index>
+                    <dot1q-tag>
+                      <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                      <vlan-id>301</vlan-id>
+                      <pbit-from-tag-index>0</pbit-from-tag-index>
+                      <dei-from-tag-index>0</dei-from-tag-index>
+                    </dot1q-tag>
+                  </push-tag>
+                </ingress-rewrite>
               </rule>
             </ingress-rule>
+            <egress-rewrite>
+              <pop-tags xmlns="urn:bbf:yang:bbf-sub-interface-tagging">1</pop-tags>
+              <push-tag xmlns="urn:bbf:yang:bbf-sub-interface-tagging">
+                <index>0</index>
+                <dot1q-tag>
+                  <tag-type xmlns:bbf-dot1qt="urn:bbf:yang:bbf-dot1q-types">bbf-dot1qt:c-vlan</tag-type>
+                  <vlan-id>0</vlan-id>
+                  <pbit-from-tag-index>0</pbit-from-tag-index>
+                  <dei-from-tag-index>0</dei-from-tag-index>
+                </dot1q-tag>
+              </push-tag>
+            </egress-rewrite>
           </inline-frame-processing>
-          <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <interface>venet-1/2/1/1/1/1/1</interface>
-          </subif-lower-layer>
         </interface>
         <interface>
           <name>subif-olt-1/2/1/1/1/1/2-c301</name>
           <type xmlns:bbfift="urn:bbf:yang:bbf-if-type">bbfift:vlan-sub-interface</type>
-          <!--dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra">
+          <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
+            <interface>venet-1/2/1/1/1/1/2</interface>
+          </subif-lower-layer>
+          <l2-dhcpv4-relay xmlns="urn:bbf:yang:bbf-l2-dhcpv4-relay">
+            <enable>true</enable>
+            <profile-ref>dhcp_relay_profile</profile-ref>
+            <!-- <trusted-port>true</trusted-port> -->
+          </l2-dhcpv4-relay>
+          <dhcpv6-ldra xmlns="urn:bbf:yang:bbf-ldra">
             <enable>true</enable>
             <profile-ref>dhcpv6_relay_profile</profile-ref>
             <trusted-port>true</trusted-port>
-          </dhcpv6-ldra-->
-          <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp-all-to-tc0</ingress-qos-policy-profile>
+          </dhcpv6-ldra>
+          <ingress-qos-policy-profile xmlns="urn:bbf:yang:bbf-qos-policies">pp_ptag_pbit</ingress-qos-policy-profile>
           <inline-frame-processing xmlns="urn:bbf:yang:bbf-sub-interfaces">
             <ingress-rule>
               <rule>
@@ -377,9 +476,6 @@
               </rule>
             </ingress-rule>
           </inline-frame-processing>
-          <subif-lower-layer xmlns="urn:bbf:yang:bbf-sub-interfaces">
-            <interface>venet-1/2/1/1/1/1/2</interface>
-          </subif-lower-layer>
         </interface>
         <interface>
           <name>subif-lag-2-c301</name>
@@ -417,10 +513,6 @@
           <to-interface nc:operation="replace">vani-1/2/1/1/1</to-interface>
         </link-table>
         <link-table>
-          <from-interface>uni-1/2/1/1/1/1/1</from-interface>
-          <to-interface nc:operation="replace">venet-1/2/1/1/1/1/1</to-interface>
-        </link-table>
-        <link-table>
           <from-interface>uni-1/2/1/1/1/1/2</from-interface>
           <to-interface nc:operation="replace">venet-1/2/1/1/1/1/2</to-interface>
         </link-table>
@@ -436,31 +528,27 @@
         <flooding-policies-profiles>
           <flooding-policies-profile>
             <name>flooding-profile-any-multicast-address-fwd</name>
-                <flooding-policy>
-                  <name>any-multicast-address</name>
-                  <in-interface-usages>
-                    <interface-usages>network-port</interface-usages>
-                  </in-interface-usages>
-                  <out-interface-usages>
-                    <interface-usages>user-port</interface-usages>
-                  </out-interface-usages>
-                  <destination-address>
-                    <!-- 
+            <flooding-policy>
+              <name>any-multicast-address</name>
+              <in-interface-usages>
+                <interface-usages>network-port</interface-usages>
+              </in-interface-usages>
+              <out-interface-usages>
+                <interface-usages>user-port</interface-usages>
+              </out-interface-usages>
+              <destination-address>
+                <!-- 
                     <unicast-address/>
                     -->
-                    <any-multicast-mac-address/>
-                  </destination-address>
-                </flooding-policy>
+                <any-multicast-mac-address />
+              </destination-address>
+            </flooding-policy>
           </flooding-policies-profile>
         </flooding-policies-profiles>
         <forwarders>
           <forwarder>
             <name>fwd_untag_to_c301</name>
             <ports>
-              <port>
-                <name>fwd-port-acc-1/2/1/1/1/1/1-c301</name>
-                <sub-interface>subif-olt-1/2/1/1/1/1/1-c301</sub-interface>
-              </port>
               <port>
                 <name>fwd-port-acc-1/2/1/1/1/1/2-c301</name>
                 <sub-interface>subif-olt-1/2/1/1/1/1/2-c301</sub-interface>

@@ -1,0 +1,20 @@
+<rpc message-id="get-lldp-state" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <get-data xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-nmda">
+    <datastore xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">ds:operational</datastore>
+    <subtree-filter>
+      <lldp xmlns="urn:ieee:std:802.1AB:yang:ieee802-dot1ab-lldp">
+      <!--local-system-data></local-system-data>
+      <port>
+        <port-id></port-id>
+        <port-desc></port-desc>
+      </port-->
+      <port>
+        <tx-statistics>
+        </tx-statistics>
+        <rx-statistics>
+        </rx-statistics>
+      </port>
+      </lldp>
+    </subtree-filter>
+  </get-data>
+</rpc>

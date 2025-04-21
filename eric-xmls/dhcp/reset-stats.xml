@@ -2,7 +2,7 @@
     <action xmlns="urn:ietf:params:xml:ns:yang:1">
         <interfaces-state xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
             <interface>
-                <name>subif-olt-1/2/16/1/1/1/2-c301</name>
+                <name>subif-olt-1/2/1/1/1/1/2-c301</name>
                 <reset-statistics xmlns="urn:bbf:yang:bbf-interfaces-statistics-management"/>
             </interface>
         </interfaces-state>

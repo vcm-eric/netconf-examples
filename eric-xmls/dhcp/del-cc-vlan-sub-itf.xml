@@ -16,21 +16,21 @@
       <xpongemtcont xmlns="urn:bbf:yang:bbf-xpongemtcont">
         <gemports>
           <gemport nc:operation="delete">
-            <name>gem-1/2/16/1/1/2</name>
+            <name>gem-1/2/1/1/1/2</name>
           </gemport>
         </gemports>
         <tconts>
           <tcont nc:operation="delete">
-            <name>tcont-1/2/16/1/1/2</name>
+            <name>tcont-1/2/1/1/1/2</name>
           </tcont>
         </tconts>
       </xpongemtcont>
       <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
          <interface nc:operation="delete">
-          <name>subif-uni-1/2/16/1/1/1/2-untag</name>
+          <name>subif-uni-1/2/1/1/1/1/2-untag</name>
         </interface>
         <interface nc:operation="delete">
-          <name>subif-olt-1/2/16/1/1/1/2-c301</name>
+          <name>subif-olt-1/2/1/1/1/1/2-c301</name>
         </interface>
         <interface nc:operation="delete">
           <name>subif-lag-2-c301</name>

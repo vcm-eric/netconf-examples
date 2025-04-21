@@ -298,7 +298,7 @@
         <enabled>true</enabled>
         <v-ani xmlns="urn:bbf:yang:bbf-xponvani">
           <channel-partition>channelpartition.16</channel-partition>
-          <expected-serial-number>SCOMA1200482</expected-serial-number>
+          <expected-serial-number>SCOMA120044C</expected-serial-number>
           <preferred-channel-pair>channelpair.16</preferred-channel-pair>
         </v-ani>
       </interface>
@@ -337,7 +337,7 @@
         <enabled>true</enabled>
         <v-ani xmlns="urn:bbf:yang:bbf-xponvani">
           <channel-partition>channelpartition.1</channel-partition>
-          <expected-serial-number>HTSZ39002549</expected-serial-number>
+          <expected-serial-number>HTSZ39003930</expected-serial-number>
           <preferred-channel-pair>channelpair.1</preferred-channel-pair>
         </v-ani>
       </interface>
